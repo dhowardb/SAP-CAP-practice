@@ -1,12 +1,12 @@
 using {sap.capire.bookshop as my} from '../db/schema';
 
-service CatalogService @(path: '/browse') {
+@path: '/browse'
+service CatalogService {
 
     @readonly
     entity Books  as
         select from my.Books {
-            *,
-            author.name as author
+            *
         }
         excluding {
             createdBy,
@@ -16,4 +16,5 @@ service CatalogService @(path: '/browse') {
     @requires_: 'authenticated-user'
     @insertonly
     entity Orders as projection on my.Orders;
+
 }
