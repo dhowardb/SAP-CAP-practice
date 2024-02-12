@@ -11,10 +11,14 @@
     "express": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^1"
+    "@cap-js/sqlite": "^1.5.0",
+    "@sap/ux-specification": "^1.120.3",
+    "cds-plugin-ui5": "^0.6.13"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-risk-management": "cds watch --open riskmanagement/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-project1": "cds watch --open project1/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
     "requires": {
@@ -23,5 +27,13 @@
         "model": "srv/external/API_BUSINESS_PARTNER"
       }
     }
-  }
+  },
+  "sapux": [
+    "app/risk-management",
+    "app/project1",
+    "app/risk-management"
+  ],
+  "workspaces": [
+    "app/*"
+  ]
 }
